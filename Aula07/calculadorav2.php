@@ -1,7 +1,8 @@
 <?php
-$metodo= $_SERVER["REQUEST_METHOD"];?>
+$metodo = $_SERVER["REQUEST_METHOD"];
+?>
 
-<label>O método utilizado para envio do form é:</label>
+
 
 <?php echo $metodo;?>
 
@@ -13,11 +14,14 @@ $metodo= $_SERVER["REQUEST_METHOD"];?>
 <!DOCTYPE html>
 <html>
 <head>
-<a href="http://localhost:8080/Atividades-PHP/"> Home</a>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<br>
+	<br>
+	<a href="http://localhost:80/Atividades-PHP/">Home</a>
+	<label>O método utilizado para envio do form é:</label>
 	<form method="POST">
 		<label>Digite o Primeiro número:</label> <input name="n1_form" />
 		<hr>
@@ -27,22 +31,20 @@ $metodo= $_SERVER["REQUEST_METHOD"];?>
 		<input type="submit" />
 	</form>
 	<?php if ($cond){	?>
-	<?php if (is_numeric($num1)){
-		if (is_numeric($num2)){
-			if ($num2 != 0){
+	<?php
 
-			}
-			else {
-				echo "O segundo número precisa ser diferente de zero.";
-			}
-		} else {
-			echo "Inserir dois numero válidos";
-		}
-
-	}
-	else {
-		echo "Inserir dois numero válidos";}
-		?>
+    if (is_numeric($num1)) {
+        if (is_numeric($num2)) {
+            if ($num2 != 0) {} else {
+                echo "O segundo número precisa ser diferente de zero.";
+            }
+        } else {
+            echo "Inserir dois numero válidos";
+        }
+    } else {
+        echo "Inserir dois numero válidos";
+    }
+    ?>
 		<?php if (is_numeric($num1)){?>
 		<?php if (is_numeric($num2)){?>
 		<?php if ($num2 != 0){?>

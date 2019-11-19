@@ -7,6 +7,9 @@
 <title>Tipo do Valor PHP</title>
 </head>
 <body>
+	<a href="http://localhost:80/atividades-php/index.html"> Home </a>
+	<hr>
+	<br>
 	<label> Seja bem vindo a Atividade 02.</label>
 	<hr>
 	<?php if ($metodo == "GET") { ?>
@@ -16,15 +19,17 @@
 	</form>
 	<?php  }?>
 	<?php
-	if ($metodo == "POST") {
-		$valor = $_POST["v_form"];
-		if (is_numeric($valor) ){
-			$tipo = "O valor é numerico"; echo "$tipo";
-		}
-		else {
-			$tipo = "O Valor não é numérico."; echo "$tipo";
-		}}
-		?>
+if ($metodo == "POST") {
+    $valor = $_POST["v_form"];
+    if (is_numeric($valor)) {
+        $tipo = "O valor é numerico";
+        echo "$tipo";
+    } else {
+        $tipo = "O Valor não é numérico.";
+        echo "$tipo";
+    }
+}
+?>
 
 </body>
 </html>

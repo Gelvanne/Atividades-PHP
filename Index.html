@@ -1,29 +1,59 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Atividades PHP</title>
+<title>Aula 8 Menu com CSS</title>
+<link rel="stylesheet" type="text/css" href="estilo.css" />
+<style>
+body {
+	background-image:
+		url(http://localhost:80/Atividades-PHP/imagens/img2.png);
+	/*caso a sua imagem de fundo se encontre no mesmo diretorio use apenas background-image:url(backg.jpg) */
+	background-size: cover;
+	/*caso nao pertenda utilizar htm5 substitua 'cover' por 100%*/
+	background-repeat: no-repeat;
+	/*previne que a imagem se repita ao longo da pagina*/
+}
+</style>
 </head>
 <body>
-	<h1>Atividades PHP</h1>
+
+	<h1>Curso de PHP SEG/QUA/SEX Prof Igor</h1>
 	<br>
-	<hr>
-	<a> AULA-05: </a>
-	<a href="aula05/index.html" />Access
-	</a>
 	<br>
-	<hr>
-	<a> AULA-06: </a>
-	<a href="aula06/index.html" />Access
-	</a>
-	<br>
-	<hr>
-	<a> AULA-07: </a>
-	<a href="aula07/index.html" />Access
-	</a>
-	<br>
-	<hr>
-	<a>AULA-08: </a>
-	<a href="aula08/index.html">Access</a>
+
+	<ul id="nav">
+		<li><a
+			href="http://localhost:80/Atividades-PHP/aula05/index.html">Aula-05</a>
+			<ul>
+				<li><a
+					href="http://localhost:80/atividades-php/aula05/variaveis.php">Variáveis</a></li>
+			</ul></li>
+		<li><a
+			href="http://localhost:80/Atividades-PHP/aula06/index.html">Aula-06</a>
+			<ul>
+				<li><a
+					href="http://localhost:80/atividades-php/aula06/calculadora.php">Calculadora
+						V1</a></li>
+			</ul></li>
+		<li><a
+			href="http://localhost:80/Atividades-PHP/aula07/index.html">Aula-07</a>
+			<ul>
+				<li><a
+					href="http://localhost:80/Atividades-PHP/Aula07/calculadorav2.php">Calculadora
+						V2</a></li>
+			</ul></li>
+		<li><a
+			href="http://localhost:80/Atividades-PHP/aula08/index.html">Aula-08</a>
+			<ul>
+				<li><a
+					href="http://localhost:80/atividades-php/aula08/atividade1.html">Atividade-1</a></li>
+				<li><a
+					href="http://localhost:80/atividades-php/aula08/atividade2.html">Atividade-2</a></li>
+				<li><a
+					href="http://localhost:80/atividades-php/aula08/atividade3.html">Atividade-3</a></li>
+			</ul></li>
+
+	</ul>
+
 </body>
 </html>

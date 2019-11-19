@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 200px;
+}
+
+ul li {
+	position: relative;
+}
+
+li ul {
+	position: absolute;
+	left: 200px;
+	top: 0;
+	display: none;
+}
+
+ul li a {
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+	color: #255255;
+	background: #fff;
+	padding: 15px;
+	border: 3px solid #ccc;
+}
+
+/* Fix IE. Hide from IE Mac \*/
+* html ul li {
+	float: left;
+}
+
+* html ul li a {
+	height: 1%;
+}
+/* End */
+
+/* Criação do submenu*/
+li:hover ul {
+	display: block;
+}
+
+ul li a:hover {
+	text-decoration: underline;
+	font-weight: bold;
+	background: #ccc;
+}

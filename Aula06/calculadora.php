@@ -1,27 +1,27 @@
 <?php
 
-// Descobrindo o metodo que está sendo utilizado.
+// Descobrindo o metodo que estï¿½ sendo utilizado.
 echo $_SERVER["REQUEST_METHOD"];
-// Gravando na variável metodo o resultado de (echo $_SERVER["REQUEST_METHOD"])
+// Gravando na variï¿½vel metodo o resultado de (echo $_SERVER["REQUEST_METHOD"])
 $metodo = $_SERVER["REQUEST_METHOD"];
 
-// a variavel post criada é testada para retornar um valor verdadeiro ou falso.
+// a variavel post criada ï¿½ testada para retornar um valor verdadeiro ou falso.
 $post = $metodo == "POST";
 
-// Variáveis para os níumeros
+// Variï¿½veis para os nï¿½umeros
 
 // Design Patterns estudar esse assunto.
 
 // Entrada de numeros
-if ($post){
-	$num1=floatval($_POST["num01"]);
-	$num2=floatval($_POST["num02"]);
+if ($post) {
+    $num1 = floatval($_POST["num01"]);
+    $num2 = floatval($_POST["num02"]);
 
-	//Calculos realizados.
-	$soma=($num1+$num2);
-	$sub=($num1-$num2);
-	$mult=($num1*$num2);
-	$div=($num1/$num2);
+    // Calculos realizados.
+    $soma = ($num1 + $num2);
+    $sub = ($num1 - $num2);
+    $mult = ($num1 * $num2);
+    $div = ($num1 / $num2);
 }
 ?>
 
@@ -41,8 +41,10 @@ if ($post){
 		<hr>
 		<input type="submit" />
 	</form>
-	<?php // inicio da condição if para o corpo do html.
-	if ($post){	?>
+	<?php 
+// inicio da condiï¿½ï¿½o if para o corpo do html.
+if ($post) {
+    ?>
 	<h2>Resultados:</h2>
 	<hr>
 	<p>
@@ -62,7 +64,9 @@ if ($post){
 		<?php echo	"$div";?>
 	</p>
 
-	<?php // fechamento da condição
-	}?>
+	<?php 
+// fechamento da condiï¿½ï¿½o
+}
+?>
 </body>
 </html>

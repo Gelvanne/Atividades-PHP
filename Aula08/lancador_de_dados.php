@@ -1,34 +1,42 @@
-<? php $metodo = $_SERVER["REQUEST_METHOD"];?>
-<? php if ($metodo == "GET") { ?>
+<?php $metodo = $_SERVER ["REQUEST_METHOD"];?>
+<?php if ($metodo == "GET") {?>
 
-	<!DOCTYPE htlm>
+<!DOCTYPE htlm>
 
-	<html>
+<html>
 
-	<head>
-	<meta charset="ISO-8859-1">
-	<title>Lançador de dados  PHP</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Lançador de dados PHP</title>
 
-	</head>
+</head>
 
-	<body>
+<body>
+	<a href="http://localhost:80/atividades-php/index.html"> Home </a>
+	<hr>
+	<br>
 	<br>
 	<label> Seja bem vindo a Aula 08 - Atividade 03</label>
-	<br><hr>
+	<br>
+	<hr>
 	<form method="POST">
-	<label>Digite o valor mínimo:</label> 	<input name="minimo"/>
-	<label>Digite o valor máximo:</label> 	<input name="maximo"/>
-						<input type="submit"/>
+		<label>Digite o valor mínimo:</label> <input name="minimo" />
+		<hr>
+		<a></a><label>Digite o valor máximo:</label> <input name="maximo" />
+		<hr>
+		<input type="submit" />
 	</form>
+<?php }?>
 
-<? php } ?>
+<?php
 
-<? php else { ?>
-	$min = $_POST["minimo"];
-	$max = $_POST["maximo"];
-	$resultado = rand( $min, $max );
-	echo $resultado;
-<? php } ?>
+if ($metodo == "POST") {
+    $min = $_POST["minimo"];
+    $max = $_POST["maximo"];
+    $resultado = rand($min, $max);
+    echo $resultado;
+}
+?>
 	</body>
 
 </html>
