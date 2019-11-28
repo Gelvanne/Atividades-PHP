@@ -1,14 +1,20 @@
 <?php $method =$_SERVER["REQUEST_METHOD"];?>
 <?php
 if ($method == "POST") {
-    $min = $_POST["minimo"];
-    $max = $_POST["maximo"];
-    $rep = $_POST["repeticao"];
-    $resultado = array();
-    for ($i = 0; $i < $rep; $i ++) {
-        $resultado[] = rand($min, $max);
-    }
-}
+	$min = $_POST["minimo"];
+	$max = $_POST["maximo"];
+	$rep = $_POST["repeticao"];
+	$resultado = array();
+	for ($i = 0; $i < $rep; $i ++) {
+		for ($existe = true;$existe == true;){
+			$dezena = rand($min, $max);
+			if (array_search($dezena, $resultado)== FALSE){
+				$existe = FALSE;
+				$resultado[] = $dezena;
+			}
+		}
+	}
+		
 ?>
 
 
@@ -19,9 +25,9 @@ if ($method == "POST") {
 <title>LOTERIA PHP</title>
 </head>
 <body>
-	<h1>Seja bem Vindo a Aula 11 Programa LOTERIA</h1>
+	<h1>Seja bem Vindo a Aula 12 Programa LOTERIA</h1>
 	<form method="POST"
-		action="http://localhost:80/atividades-php/aula11/loteria.php">
+		action="http://localhost:80/atividades-php/aula12/loteria.php">
 		<hr>
 		<br> <label>Digite o numero mínimo:</label> <input name="minimo"
 			value="<?php echo $min;?>" type="number">
