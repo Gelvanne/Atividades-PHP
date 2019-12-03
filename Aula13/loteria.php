@@ -6,11 +6,12 @@ if ($method == "POST") {
 	$nDezenas = $_POST["repeticao"];
 	$sorteado = array();
 	for ($i = 0; $i < $nDezenas; $i ++) {
-		for ($adicionado = FALSE;$adicionado == FALSE;){
+		$adicionado = FALSE;
+		while($adicionado == false){
 			$dezena = rand($min, $max);
-			if (in_array($dezena, $sorteado)== FALSE){
-				$adicionado = TRUE;
+			if (in_array($dezena, $sorteado) == false){
 				$sorteado[] = $dezena;
+				$adicionado = true;
 			}
 		}
 	}
@@ -26,9 +27,9 @@ sort($sorteado); // coloca em ordem crescente
 <title>LOTERIA PHP</title>
 </head>
 <body>
-	<h1>Seja bem Vindo a Aula 12 Programa LOTERIA</h1>
+	<h1>Programa Mega da Virada!!</h1>
 	<form method="POST"
-		action="http://localhost:80/atividades-php/aula12/loteria.php">
+		action="http://localhost:80/atividades-php/aula13/loteria.php">
 		<hr>
 		<br> <label>Digite o numero mínimo:</label> <input name="minimo"
 			value="<?php echo $min;?>" type="number">
@@ -41,9 +42,24 @@ sort($sorteado); // coloca em ordem crescente
 		<hr>
 		<br> <input type="submit"> <br>
 	</form>
-	<label> O resultado é:</label>
+	<label> Mostra o resultado concatenando:</label>
 	<p>
-	<?php echo implode(" | ",$sorteado);?>
+	<?php echo implode(" | ",$sorteado); // mostra resultado concatenanando?>
+	</p>
+	<br>
+	<label> Mostra o resultado com foreach:</label>
+	<p>
+	<?php foreach ($sorteado as $valor){
+		echo "<p>$valor</p>";
+
+	}// mostra resultado com foreach?>
+	</p>
+	<br>
+	<label> Mostra o resultado com for:</label>
+	<p>
+	<?php for ($i = 0; $i < $nDezenas; $i++ ) {
+		echo "<p>$sorteado[$i]</p>";
+	}// mostra resultado com for?>
 	</p>
 	<br>
 	<p>
