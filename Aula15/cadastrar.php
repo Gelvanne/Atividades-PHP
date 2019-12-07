@@ -5,9 +5,12 @@ if ($method == "POST"){
 	session_start();
 
 	if (isset($_SESSION["lista"]) == FALSE){
+		// Se a sessão setada for falsa
 		$_SESSION["lista"] = array();
 	}
 	$lista= $_SESSION["lista"];
+	
+	
 	$email = $_POST["email"];
 	$senha = $_POST["senha"];
 
@@ -25,7 +28,7 @@ if ($method == "POST"){
 			break;
 		}
 	}
-// caso a condição seja falsa o codigo segue para cadastrar um novo usuário.
+	// caso a condição seja falsa o codigo segue para cadastrar um novo usuário.
 	if ($emailCadastrado == false){
 		$lista[] = $usuario;
 		$_SESSION["lista"]= $lista;
@@ -42,22 +45,24 @@ if ($method == "POST"){
 <title>Cadastro|Usuário</title>
 </head>
 <body>
-<a href="usuarios.php">Voltar</a>
-<br>
-<h1> Cadastro Usuário</h1>
-<form method = "POST" action="/Atividades-PHP/Aula15/cadastrar.php">
-<p>
-<label>E-mail:</label><input type="email" name="email">
-</p>
-<p>
-<label>Senha:</label><input type="password" name="senha">
-</p>
-<input type="submit" value="Cadastrar">
+	<a href="usuarios.php">Voltar</a>
+	<br>
+	<h1>Cadastro Usuário</h1>
+	<form method="POST" action="/Atividades-PHP/Aula15/cadastrar.php">
+		<p>
+			<label>E-mail:</label><input type="email" name="email">
+		</p>
+		<p>
+			<label>Senha:</label><input type="password" name="senha">
+		</p>
+		<input type="submit" value="Cadastrar">
 
-<?php  if (isset($emailCadastrado)and $emailCadastrado == true){?>
-<p><font color="red"> Email Já Cadastrado. Tente Novamente.</font></p>
-<?php }?>
+		<?php  if (isset($emailCadastrado)and $emailCadastrado == true){?>
+		<p>
+			<font color="red"> Email Já Cadastrado. Tente Novamente.</font>
+		</p>
+		<?php }?>
 
-</form>
+	</form>
 </body>
 </html>
