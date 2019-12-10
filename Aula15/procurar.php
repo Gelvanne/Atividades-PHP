@@ -22,7 +22,7 @@ if ($method == "POST") {
 			break;
 		}
 		
-	}
+	}/*Encerra foreach caso o valor seja encontrado o codigo continua com a variável $emailCadastrado agora como true*/
 	
 	if ($emailCadastrado) {
 		$_SESSION["uPerfil"] = $uPerfil;
