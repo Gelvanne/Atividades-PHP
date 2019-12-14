@@ -2,11 +2,19 @@
 $method = $_SERVER["REQUEST_METHOD"];
 
 if ($method == "POST") {
-    $email = $_POST["fC_email"];
-    $nome = $_POST["fC_nome"];
-    $senha = $_POST["fC_senha"];
-    $link = mysqli_connect("localhost", "root", "");
-    $resultado = mysqli_query($link, "insert into db_usuarios.tb_usuarios (usuario_email,usuario_name,usuario_senha) values ('$email','$nome','$senha')");
+	$email = $_POST["fC_email"];
+	$nome = $_POST["fC_nome"];
+	$senha = $_POST["fC_senha"];
+	$link = mysqli_connect("localhost", "root", "");/* Criando conexão com o banco de dados e salvando na variavel $link*/
+	/*procedimento de teste para saber se o usuáriojá existe no DB*/
+	$check = mysqli_query($link, "SELECT * FROM db_usuarios.tb_usuarios WHERE usuario_email = '$email'");
+	// var_dump($_COOKIE);
+	if ($check->num_rows > 0){
+		$msg = "E-MAIL JÁ CADASTRADO POR FAVOR TENTE OUTRO E-MAIL";
+	} else {
+		$resultado = mysqli_query($link, "INSERT INTO db_usuarios.tb_usuarios (usuario_email,usuario_name,usuario_senha) values ('$email','$nome','$senha')");
+		/* vardump para tester a função*/
+	}
 }
 
 ?>
@@ -38,7 +46,13 @@ if ($method == "POST") {
 			<input type="submit" value="Cadastrar">
 		</p>
 	</form>
-<?php if ( isset($resultado) and $resultado ) { ?>
+		<!-- Codigo PHP para verificar se o email já está cadastrado -->
+	<?php if (isset($check)and $check->num_rows > 0){ ?>
+	<p>E-mail já cadastrado por favor tente outro email.</p>
+	<?php } else{ $check = null;}?>
+
+	<!-- Codigo PHP para informar que o usuário está sendo cadastrado -->
+	<?php if ( isset($resultado) and $resultado ) { ?>
 	<p>Cadastro feito com sucesso.</p>
 	<?php } else if ( isset($resultado) and $resultado == false ) {?>
 	<p>Algum erro aconteceu. Tente novamente</p>
