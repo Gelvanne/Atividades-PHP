@@ -6,15 +6,25 @@ if ($method == "POST") {
 	$nome = $_POST["fC_nome"];
 	$senha = $_POST["fC_senha"];
 	$link = mysqli_connect("localhost", "root", "");/* Criando conexão com o banco de dados e salvando na variavel $link*/
-	/*procedimento de teste para saber se o usuáriojá existe no DB*/
-	$check = mysqli_query($link, "SELECT * FROM db_usuarios.tb_usuarios WHERE usuario_email = '$email'");
-	// var_dump($_COOKIE);
-	if ($check->num_rows > 0){
-		$msg = "E-MAIL JÁ CADASTRADO POR FAVOR TENTE OUTRO E-MAIL";
-	} else {
-		$resultado = mysqli_query($link, "INSERT INTO db_usuarios.tb_usuarios (usuario_email,usuario_name,usuario_senha) values ('$email','$nome','$senha')");
-		/* vardump para tester a função*/
-	}
+	/* Realizar o teste da conexão MySQL no caso de valor igual a zero não existe erro*/
+	$linkErro = mysqli_connect_errno();
+	if ($linkErro == 0){
+		/*procedimento de teste para saber se o usuáriojá existe no DB*/
+		$check = mysqli_query($link, "SELECT * FROM db_usuarios.tb_usuarios WHERE usuario_email = '$email'");
+		// var_dump($_COOKIE);
+		if ($check->num_rows > 0){
+			$msg = "E-MAIL JÁ CADASTRADO POR FAVOR TENTE OUTRO E-MAIL";
+		}/* FIM if ($check->num_rows > 0){*/ else {
+			$resultado = mysqli_query($link, "INSERT INTO db_usuarios.tb_usuarios (usuario_email,usuario_name,usuario_senha) values ('$email','$nome','$senha')");
+			/* comando para testar as alterações relizadas pelo SQL no banco*/
+			if (Rresultado){
+				$rowsAfected = mysqli_affected_rows($link);
+				if ($rowsAfected >0){
+					$msg= "Cadastro realizado com grande sucesso!!!!";
+				}
+			}
+		}/* Fim else*/
+	}/*FIM if ($linkErro == 0){ */
 }
 
 ?>
