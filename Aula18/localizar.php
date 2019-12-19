@@ -20,6 +20,7 @@ $usuarios = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 	<table>
 		<thead>
 			<tr>
+				<td>Select</td>
 				<td>ID:</td>
 				<td>NOME:</td>
 				<td>E-MAIL:</td>
@@ -27,18 +28,23 @@ $usuarios = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 			</tr>
 		</thead>
 		<tbody>
-		<?php foreach($usuarios as $u) {?>
-		<tr>
-				<td>     <?php echo $u["usuario_id"]; ?>         		 </td>
-				<td>     <?php echo $u["usuario_name"]; ?>     	</td>
-				<td>     <?php echo $u["usuario_email"]; ?>   	 	 </td>
-				<td>     <?php echo $u["usuario_senha"]; ?>     	</td>
+			<?php foreach($usuarios as $u) {?>
+			<tr>
+			<td><input type="checkbox" Name="ids[]" value= "<?php echo $u[usuario_id]; ?>" /> </td>
+				<td><?php echo $u["usuario_id"]; ?>
+				</td>
+				<td><?php echo $u["usuario_name"]; ?>
+				</td>
+				<td><?php echo $u["usuario_email"]; ?>
+				</td>
+				<td><?php echo $u["usuario_senha"]; ?>
+				</td>
 			</tr>
-		<?php }?>
+			<?php }?>
 		</tbody>
 
 	</table>
-
+<input type="submit" value="Excluir" />
 </body>
 </html>
 </body>
